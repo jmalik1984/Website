@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YRJ Beauty Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="container">
+      <div class="logo">YRJ Beauty Services</div>
+      <nav class="main-nav" aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">☰</button>
+        <ul id="main-menu">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#appointment">Book Now</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="eyebrow">Premium beauty care in the heart of the city</p>
+          <h1>Feel your best with YRJ Beauty Services</h1>
+          <p>
+            From rejuvenating facials to luxurious spa treatments, our experienced
+            specialists deliver personalised beauty experiences tailored to you.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#appointment">Book an Appointment</a>
+            <a class="btn ghost" href="#services">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-card" role="presentation">
+          <div class="hero-card__image" aria-hidden="true"></div>
+          <div class="hero-card__details">
+            <h2>Signature Glow Facial</h2>
+            <p>90-minute session designed to refresh, hydrate, and illuminate your skin.</p>
+            <ul>
+              <li>Complimentary skin analysis</li>
+              <li>Natural botanical products</li>
+              <li>Relaxing aromatherapy massage</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="badges" aria-label="Salon highlights">
+      <div class="container">
+        <div class="badge">
+          <span class="badge__icon">★</span>
+          <h3>Certified Experts</h3>
+          <p>10+ years of combined experience from internationally trained stylists.</p>
+        </div>
+        <div class="badge">
+          <span class="badge__icon">🌿</span>
+          <h3>Clean Beauty</h3>
+          <p>We only use cruelty-free products that are kind to your skin and the planet.</p>
+        </div>
+        <div class="badge">
+          <span class="badge__icon">🕒</span>
+          <h3>Flexible Hours</h3>
+          <p>Open 7 days a week with extended evening appointments available.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Our Expertise</p>
+          <h2>Services crafted for beauty &amp; wellness</h2>
+          <p>Discover a full range of treatments designed to enhance your natural glow.</p>
+        </div>
+        <div class="cards services-grid">
+          <article class="card">
+            <h3>Facials &amp; Skin Treatments</h3>
+            <p>Hydrating, anti-aging, and acne solutions using advanced technology.</p>
+            <ul>
+              <li>Signature Glow Facial</li>
+              <li>LED Light Therapy</li>
+              <li>Collagen Boost Peel</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Hair Styling &amp; Treatments</h3>
+            <p>From precision cuts to nourishing spa rituals for healthy, shiny hair.</p>
+            <ul>
+              <li>Creative Colouring</li>
+              <li>Keratin Smoothing</li>
+              <li>Bridal Styling</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Hands &amp; Feet Rituals</h3>
+            <p>Relaxing manicures, pedicures, and nail artistry for every occasion.</p>
+            <ul>
+              <li>Gel Manicure</li>
+              <li>Deluxe Spa Pedicure</li>
+              <li>Nail Art &amp; Extensions</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Makeup &amp; Bridal Services</h3>
+            <p>Flawless looks for weddings, events, and photoshoots with trial sessions.</p>
+            <ul>
+              <li>Airbrush Makeup</li>
+              <li>Bridal Packages</li>
+              <li>Photoshoot Styling</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Save with bundles</p>
+          <h2>Packages tailored to your goals</h2>
+          <p>Choose from curated experiences or build your own combo with our consultants.</p>
+        </div>
+        <div class="cards packages-grid" role="list">
+          <article class="card package" role="listitem">
+            <div class="package__ribbon">Popular</div>
+            <h3>Radiant Reset</h3>
+            <p class="price">₹4,999</p>
+            <ul>
+              <li>Signature Glow Facial</li>
+              <li>Relaxing Head Massage</li>
+              <li>Express Manicure</li>
+            </ul>
+            <button class="btn secondary" data-package="Radiant Reset">Book Package</button>
+          </article>
+          <article class="card package" role="listitem">
+            <h3>Bridal Bliss</h3>
+            <p class="price">₹12,499</p>
+            <ul>
+              <li>Pre-bridal Skin Ritual (3 sessions)</li>
+              <li>Mehendi &amp; Sangeet Styling</li>
+              <li>Wedding Day Makeup &amp; Hair</li>
+            </ul>
+            <button class="btn secondary" data-package="Bridal Bliss">Book Package</button>
+          </article>
+          <article class="card package" role="listitem">
+            <h3>Self-care Sundays</h3>
+            <p class="price">₹2,999</p>
+            <ul>
+              <li>Aromatherapy Body Polish</li>
+              <li>Deep Conditioning Hair Spa</li>
+              <li>Calming Foot Ritual</li>
+            </ul>
+            <button class="btn secondary" data-package="Self-care Sundays">Book Package</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="appointment" id="appointment">
+      <div class="container">
+        <div class="appointment__card">
+          <div class="appointment__intro">
+            <p class="eyebrow">Let's plan your visit</p>
+            <h2>Book an appointment</h2>
+            <p>Tell us your preferred treatment and timing. We'll confirm your session within minutes.</p>
+          </div>
+          <form class="appointment__form" aria-label="Book an appointment form">
+            <div class="form-field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" required placeholder="Enter your name" />
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" required placeholder="e.g. +91 98765 43210" />
+            </div>
+            <div class="form-field">
+              <label for="service">Preferred Service</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option>Facials &amp; Skin</option>
+                <option>Hair Styling</option>
+                <option>Hands &amp; Feet</option>
+                <option>Makeup &amp; Bridal</option>
+                <option>Package Booking</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="date">Preferred Date</label>
+              <input id="date" name="date" type="date" required />
+            </div>
+            <div class="form-field">
+              <label for="message">Notes</label>
+              <textarea id="message" name="message" rows="3" placeholder="Tell us about your goals"></textarea>
+            </div>
+            <button type="submit" class="btn primary">Submit Request</button>
+            <p class="form-feedback" role="alert" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section location" id="location">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Visit us</p>
+          <h2>Find YRJ Beauty Services</h2>
+          <p>Located near the bustling city centre with ample parking and easy public transport access.</p>
+        </div>
+        <div class="location__content">
+          <div class="location__details">
+            <h3>Salon Address</h3>
+            <p>YRJ Beauty Services<br />12 Blossom Avenue, Indiranagar<br />Bengaluru, Karnataka 560038</p>
+            <h3>Hours</h3>
+            <ul>
+              <li>Mon - Fri: 10:00 AM – 8:00 PM</li>
+              <li>Sat: 9:00 AM – 9:00 PM</li>
+              <li>Sun: 10:00 AM – 6:00 PM</li>
+            </ul>
+            <a class="btn ghost" href="#appointment">Plan Your Visit</a>
+          </div>
+          <div class="location__map" aria-hidden="true">
+            <iframe title="YRJ Beauty Services on the map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.1111111111113!2d77.6400000!3d12.9780000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sYRJ%20Beauty%20Services!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Stay in touch</p>
+          <h2>Contact &amp; connect</h2>
+          <p>Reach out to plan your beauty journey or ask about custom services.</p>
+        </div>
+        <div class="contact__grid">
+          <div class="contact__card">
+            <h3>Call or WhatsApp</h3>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+          <div class="contact__card">
+            <h3>Email</h3>
+            <a href="mailto:hello@yrjbeauty.com">hello@yrjbeauty.com</a>
+            <p>We respond within 24 hours.</p>
+          </div>
+          <div class="contact__card">
+            <h3>Follow</h3>
+            <ul>
+              <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+            </ul>
+          </div>
+          <div class="contact__card newsletter">
+            <h3>Exclusive offers</h3>
+            <p>Join our newsletter for early access to seasonal packages.</p>
+            <form class="newsletter__form">
+              <label class="sr-only" for="newsletter-email">Email address</label>
+              <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email" required />
+              <button type="submit" class="btn secondary">Subscribe</button>
+              <p class="newsletter-feedback" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> YRJ Beauty Services. All rights reserved.</p>
+      <div class="footer__links">
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#appointment">Book</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
