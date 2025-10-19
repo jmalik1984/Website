@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YRJ Beauty Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" xintegrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      /* Black & White & Gold Palette */
+      --clr-bg: #ffffff; 
+      --clr-surface: #f9f9f9;
+      --clr-primary: #1a1a1a; 
+      --clr-primary-dark: #000000;
+      --clr-secondary: #d4af37; /* Soft, elegant gold */
+      --clr-text: #222222; 
+      --clr-muted: #666666; 
+      --clr-border: #e0e0e0;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+      --transition: 200ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--clr-text);
+      background-color: var(--clr-bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--clr-primary-dark);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1200px, 90vw);
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #000; /* Black Header */
+      color: #fff; /* White Text */
+      border-bottom: 1px solid #333; /* Dark border */
+    }
+
+    .top-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 2vw, 1.6rem);
+    }
+
+    .main-nav {
+      position: relative;
+    }
+
+    .main-nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .main-nav a {
+      font-weight: 500;
+      color: #fff;
+      transition: color var(--transition);
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .main-nav a:hover,
+    .main-nav a:focus {
+      color: var(--clr-secondary);
+    }
+
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--clr-secondary);
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a:focus::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #fff;
+      padding: 0.5rem 0.7rem;
+      border-radius: 6px;
+      font-size: 1.2rem;
+    }
+
+    .cta {
+      background: #fff;
+      color: #000; /* Black text on button */
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: background var(--transition), transform var(--transition), color var(--transition);
+      white-space: nowrap;
+    }
+
+    .cta:hover,
+    .cta:focus {
+      background: #f0f0f0; /* Light grey hover */
+      color: #000;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 6rem 0 4rem;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      align-items: center;
+    }
+    
+    .hero-text {
+        margin: 0;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      color: var(--clr-muted);
+      margin-bottom: 1.25rem;
+      max-width: 50ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .hero-image-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-image {
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        object-fit: cover;
+    }
+
+
+    .badge {
+      background: var(--clr-surface);
+      padding: 2rem;
+      border-radius: 18px;
+      border: 1px solid var(--clr-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      display: grid;
+      gap: 0.4rem;
+      text-align: center;
+    }
+
+    .badge h3 {
+        font-family: var(--font-heading);
+        font-size: 1.4rem;
+        background-color: var(--clr-primary-dark);
+        color: #fff;
+        padding: 1.5rem 2rem;
+        margin: -2rem -2rem 1rem -2rem;
+        border-radius: 18px 18px 0 0;
+    }
+
+    .badge__icon {
+      font-size: 2rem;
+      color: var(--clr-secondary);
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header p {
+      color: var(--clr-muted);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--clr-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+    
+    .services-grid {
+        align-items: stretch;
+    }
+
+    .card {
+      background: var(--clr-surface);
+      padding: 2rem;
+      border-radius: 18px;
+      border: 1px solid var(--clr-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      display: flex; 
+      flex-direction: column; 
+    }
+    
+    .card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      background-color: var(--clr-primary-dark);
+      color: #fff;
+      padding: 1.5rem 2rem;
+      margin: -2rem -2rem 1rem -2rem;
+      border-radius: 18px 18px 0 0;
+    }
+
+    .card p {
+      margin-bottom: 1rem;
+      color: var(--clr-muted);
+    }
+
+    .card ul {
+      list-style-position: inside;
+      padding-left: 0;
+      color: var(--clr-primary-dark);
+      display: grid;
+      gap: 0.4rem;
+      margin-top: auto; 
+    }
+
+    .card ul li {
+      font-weight: bold;
+    }
+
+    .package {
+      position: relative;
+    }
+
+    .package__ribbon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--clr-primary);
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--clr-primary-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+      text-align: center;
+    }
+
+    .btn.primary {
+      background: var(--clr-primary);
+      color: #fff;
+    }
+
+    .btn.primary:hover,
+    .btn.primary:focus {
+      background: var(--clr-secondary);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0, 0.1);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid var(--clr-secondary);
+      color: var(--clr-primary-dark);
+      margin-top: 1rem;
+    }
+
+    .btn.secondary:hover,
+    .btn.secondary:focus {
+      background: var(--clr-secondary);
+      color: #000;
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid var(--clr-primary);
+      color: var(--clr-primary);
+    }
+
+    .btn.ghost:hover,
+    .btn.ghost:focus {
+      background: var(--clr-primary);
+      color: #fff;
+    }
+
+    .appointment {
+      background: var(--clr-primary-dark);
+      padding: 5rem 0;
+    }
+    
+    .appointment__content {
+      padding: 3rem;
+      border-radius: 24px;
+      text-align: center;
+      color: #fff;
+    }
+    
+    .appointment__content h2 {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+    
+    .appointment__content p {
+      color: #ccc;
+      max-width: 50ch;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .appointment__content .btn {
+      background: var(--clr-secondary);
+      color: #000;
+      font-size: 1.1rem;
+      padding: 1rem 2.5rem;
+    }
+    
+    .location__content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .location__details ul {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+      margin: 1rem 0 2rem;
+      color: var(--clr-muted);
+    }
+    
+    .location__details .btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .contact__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .contact__card {
+      background: var(--clr-surface);
+      border-radius: 18px;
+      padding: 2rem;
+      border: 1px solid var(--clr-border);
+      display: grid;
+      gap: 1rem;
+    }
+    
+    .contact__card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.4rem;
+        background-color: var(--clr-primary-dark);
+        color: #fff;
+        padding: 1.5rem 2rem;
+        margin: -2rem -2rem 1rem -2rem;
+        border-radius: 18px 18px 0 0;
+        text-align: center;
+    }
+
+    .contact__card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .contact__card a {
+      font-weight: 500;
+      color: var(--clr-primary-dark);
+      word-break: break-all;
+    }
+
+    .footer {
+      background: var(--clr-primary-dark);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 2rem 0;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    .footer__links a {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer__links a:hover,
+    .footer__links a:focus {
+      color: #fff;
+    }
+    
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+      transition: transform var(--transition);
+    }
+
+    .whatsapp-fab:hover {
+      transform: scale(1.1);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .main-nav ul {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: var(--clr-surface);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        border: 1px solid var(--clr-border);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity var(--transition), transform var(--transition);
+      }
+
+      .main-nav ul.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .cta {
+        display: none;
+      }
+      
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-text p {
+          margin-left: auto;
+          margin-right: auto;
+      }
+      
+      .hero-actions {
+          justify-content: center;
+      }
+
+      .hero-image-wrapper {
+          margin-top: 2rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero {
+        padding-top: 5rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .appointment__content {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="container">
+      <div class="logo">YRJ Beauty Services</div>
+      <nav class="main-nav" aria-label="Primary">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">☰</button>
+        <ul id="main-menu">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#packages">Deals</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#appointment">Book Now</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="eyebrow">Royal Beauty &amp; Wellness in Lahore</p>
+          <h1>Discover your glow with YRJ Beauty Services</h1>
+          <p>
+            Facials, skincare, hair color, lashes &amp; mehndi—expertly delivered for events and everyday radiance.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#appointment">Book an Appointment</a>
+            <a class="btn ghost" href="#services">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <img
+            id="hero-img"
+            class="hero-image"
+            src="https://raw.githubusercontent.com/jmalik1984/Website/06ab4e576a1f9aabb2ea3fdf07445f0cf064db10/unnamed.jpg"
+            alt="Makeup brushes, lipsticks and powder arranged for a beauty session"
+            loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Our Expertise</p>
+          <h2>Services Crafted for Beauty &amp; Wellness</h2>
+          <p>Discover a full range of treatments designed to enhance your natural glow.</p>
+        </div>
+        <div class="cards services-grid">
+          <article class="card">
+            <h3>Hair Artistry</h3>
+            <ul>
+              <li>Hair Dye</li>
+              <li>Hair Color</li>
+              <li>Hair Care Treatments</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Professional Makeup</h3>
+            <ul>
+              <li>Party Makeup</li>
+              <li>Model Makeup</li>
+            </ul>
+          </article>
+          <article class="card">
+             <h3>Royal Bridal Makeup</h3>
+            <ul>
+              <li>Royal Barat / Nikkah Look</li>
+              <li>Royal Walima Glam</li>
+              <li>Royal Engagement Glow</li>
+              <li>Royal Mehndi Makeup</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Skincare Services</h3>
+            <ul>
+              <li>Royal Facial</li>
+              <li>Regular Facial</li>
+              <li>Skin Polish</li>
+              <li>Wax & Threading</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Lashes &amp; Mehndi</h3>
+            <ul>
+                <li>Eyelash Extensions</li>
+                <li>Bridal Mehndi</li>
+                <li>Regular Mehndi</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Save with bundles</p>
+          <h2>Exclusive Deals For You</h2>
+          <p>Choose from curated experiences designed to offer incredible value.</p>
+        </div>
+        <div class="cards packages-grid" role="list">
+          <article class="card package" role="listitem">
+            <div class="package__ribbon">Popular</div>
+            <h3>DEAL-1 JANSSEN FACIAL</h3>
+            <p class="price">₨6,000</p>
+            <ul>
+              <li>JANSSEN FACIAL</li>
+              <li>Face Polisher</li>
+              <li>Hand &amp; Feet Polisher</li>
+              <li>Shoulder &amp; Back Massage</li>
+              <li>Two Part Threading</li>
+            </ul>
+            <button class="btn secondary" data-package="DEAL-1 JANSSEN FACIAL">Book This Deal</button>
+          </article>
+          <article class="card package" role="listitem">
+            <h3>Deal-2 My Freedom</h3>
+            <p class="price">₨4,000</p>
+            <ul>
+              <li>Regular Facial</li>
+              <li>Face Polisher</li>
+              <li>Hair Cut</li>
+            </ul>
+            <button class="btn secondary" data-package="Deal-2 My Freedom">Book This Deal</button>
+          </article>
+          <article class="card package" role="listitem">
+            <h3>Deal-3 Herbal Whitening</h3>
+            <p class="price">₨3,500</p>
+            <ul>
+              <li>Herbal Whitening Facial</li>
+              <li>Face Polisher</li>
+              <li>Half Arms Polisher</li>
+              <li>Neck, Shoulder &amp; Back Massage</li>
+              <li>Threading (Eyebrows)</li>
+            </ul>
+            <button class="btn secondary" data-package="Deal-3 Herbal Whitening">Book This Deal</button>
+          </article>
+           <article class="card package" role="listitem">
+            <h3>DEAL-4 Full Body Wax</h3>
+            <p class="price">₨6,000</p>
+             <ul>
+              <li>Full Body Waxing</li>
+            </ul>
+            <button class="btn secondary" data-package="DEAL-4 Full Body Wax">Book This Deal</button>
+          </article>
+           <article class="card package" role="listitem">
+            <h3>DEAL-5 Waxing</h3>
+            <p class="price">₨4,500</p>
+            <ul>
+              <li>Half Leg Wax</li>
+              <li>Under Arms Wax</li>
+              <li>Full Arms Wax</li>
+            </ul>
+            <button class="btn secondary" data-package="DEAL-5 Waxing">Book This Deal</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="appointment" id="appointment">
+      <div class="container">
+        <div class="appointment__content">
+          <p class="eyebrow">Let's plan your visit</p>
+          <h2>Book Your Appointment</h2>
+          <p>Ready to feel refreshed and beautiful? Contact us directly on WhatsApp to schedule your session. We'll confirm your booking within minutes!</p>
+          <a href="https://wa.me/923207816366?text=Hi%20YRJ%20Beauty%20Services,%20I'd%20like%20to%20book%20an%20appointment." class="btn primary" id="whatsapp-booking-link" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp" style="margin-right: 0.75rem;"></i> Book on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section location" id="location">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Visit us</p>
+          <h2>Find YRJ Beauty Services</h2>
+          <p>We are conveniently located on Defense Road, Lahore.</p>
+        </div>
+        <div class="location__content">
+          <div class="location__details">
+            <h3>Salon Address</h3>
+            <p>
+              456 Block L, Street 13, DHA Phase XI<br>
+              Rahbar Sector II, Defense Road<br>
+              Lahore, Punjab, Pakistan
+            </p>
+            <h3>Hours</h3>
+            <ul>
+              <li>Mon - Sun: 10:00 AM – 8:00 PM</li>
+            </ul>
+            <div class="btn-group">
+                <a class="btn ghost" href="#appointment">Book Your Visit</a>
+                <a class="btn ghost" href="https://share.google/G9j8Vk2gPqGJuZTr1" target="_blank" rel="noopener" style="display: inline-flex; align-items: center;">
+                    <i class="fa-solid fa-diamond-turn-right" style="margin-right: 0.5rem;"></i>Get Directions
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Stay in touch</p>
+          <h2>Contact &amp; Connect</h2>
+          <p>Reach out to plan your beauty journey or ask about custom services.</p>
+        </div>
+        <div class="contact__grid">
+          <div class="contact__card">
+            <h3>Call or WhatsApp</h3>
+            <a href="tel:+923207816366">0320-7816366</a>
+            <a href="https://wa.me/923207816366" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+          <div class="contact__card">
+            <h3>Email</h3>
+            <a href="mailto:yrjbeautysalon@gmail.com">yrjbeautysalon@gmail.com</a>
+            <p>We respond within 24 hours.</p>
+          </div>
+          <div class="contact__card">
+            <h3>Follow</h3>
+            <ul>
+              <li><a href="https://instagram.com/Yrjbeautysalon" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://www.facebook.com/yrjsalon" target="_blank" rel="noopener">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-us" aria-label="Why Choose Us">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Why Choose Us?</p>
+            <h2>Your Beauty is Our Passion</h2>
+          </div>
+          <div class="badges-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div class="badge">
+              <h3>Certified Experts</h3>
+              <span class="badge__icon">✨</span>
+              <p>Our skilled stylists combine creativity with professional training to craft looks that enhance your natural beauty and confidence.</p>
+            </div>
+            <div class="badge">
+              <h3>Clean &amp; Safe</h3>
+              <span class="badge__icon">🌿</span>
+              <p>Relax in a hygienic, calming environment where we use only high-quality, skin-friendly products for your comfort and care.</p>
+            </div>
+            <div class="badge">
+              <h3>Flexible Hours</h3>
+              <span class="badge__icon">🕒</span>
+              <p>Open 7 days a week — with convenient appointment slots designed to fit your busy lifestyle.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> YRJ Beauty Services. All rights reserved.</p>
+      <div class="footer__links">
+        <a href="#services">Services</a>
+        <a href="#packages">Deals</a>
+        <a href="#appointment">Book</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+  
+  <a href="https://wa.me/923207816366?text=Hi%20YRJ%20Beauty%20Services,%20I'd%20like%20to%20book%20an%20appointment." class="whatsapp-fab" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const navToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('#main-menu');
+    const yearEl = document.querySelector('#year');
+    const packageButtons = document.querySelectorAll('[data-package]');
+    const baseWhatsappURL = "https://wa.me/923207816366?text=";
+
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    if (packageButtons.length > 0) {
+      packageButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+          // Find the parent card to get deal details
+          const card = event.currentTarget.closest('.card.package');
+          if (!card) return;
+
+          const packageName = card.querySelector('h3').textContent.trim();
+          const detailsList = card.querySelectorAll('ul li');
+
+          let detailsText = '';
+          if (detailsList.length > 0) {
+            detailsText = '\n\nDeal Details:\n';
+            detailsList.forEach(item => {
+              detailsText += `- ${item.textContent.trim()}\n`;
+            });
+          }
+
+          const message = `Hi YRJ Beauty Services, I'd like to book the "${packageName}" deal.${detailsText}`;
+          const encodedMessage = encodeURIComponent(message);
+          const whatsappUrl = baseWhatsappURL + encodedMessage;
+
+          // Directly open the WhatsApp link in a new tab
+          window.open(whatsappUrl, '_blank');
+        });
+      });
+    }
+
+  </script>
+</body>
+</html>
+
